@@ -11,6 +11,9 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 @EnableWebSocket
 public class ServerWebSocketConfig implements WebSocketConfigurer {
 
+    /**
+     * It uses to register websocket endpoints
+     */
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
         registry.addHandler(webSocketHandler(), "/test")

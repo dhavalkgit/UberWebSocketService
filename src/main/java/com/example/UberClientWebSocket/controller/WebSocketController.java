@@ -15,11 +15,19 @@ public class WebSocketController extends TextWebSocketHandler {
 
     private List<WebSocketSession> sessions = new ArrayList<>();
 
+
+    /**
+     * It gets all opened client websocket connection session
+     */
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         System.out.println(session.getId());
         sessions.add(session);
     }
+
+    /**
+     * when server receive some text message from client then server send back response to client
+     */
 
     @Override
     public void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
@@ -29,6 +37,9 @@ public class WebSocketController extends TextWebSocketHandler {
         session.sendMessage(new TextMessage(response));
     }
 
+    /**
+     * server send periodic message after every 2 sec to client
+     */
     @Scheduled(fixedRate = 2000)
     void sendPeriodicMessages() throws IOException {
         for (WebSocketSession session : sessions) {
