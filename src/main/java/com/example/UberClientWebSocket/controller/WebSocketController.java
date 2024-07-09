@@ -13,7 +13,7 @@ import java.util.List;
 
 public class WebSocketController extends TextWebSocketHandler {
 
-    private List<WebSocketSession> sessions = new ArrayList<>();
+    private final List<WebSocketSession> sessions = new ArrayList<>();
 
 
     /**
