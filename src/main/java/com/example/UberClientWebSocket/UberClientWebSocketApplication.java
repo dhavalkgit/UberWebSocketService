@@ -9,5 +9,4 @@ public class UberClientWebSocketApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(UberClientWebSocketApplication.class, args);
 	}
-
 }
